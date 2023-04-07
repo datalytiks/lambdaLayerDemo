@@ -1,14 +1,15 @@
-# Welcome to your CDK TypeScript project
+# Lambda Layer how to
+This project explains how to create Lambda layer for cdk nodejs project
 
-This is a blank project for CDK development with TypeScript.
+## Purpose
+To access npm packages and custom functions from Lambda
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+## How to create lambda layer for node modules and helper functions
+*   Create following structure in src folder
+    `/src/layers/npm-packages/nodejs`
+    `/src/layers/helper-functions/nodejs`
+*   In the `npm-packages/nodejs`  do  `npm init -y` to generate `package.json`.
+*   Now do the `npm install <packageName> in this folder
+    As a result node_modules folder will be created here
+*   For the helper functions layer create the modules and export the members as shown in the code
+*   Now the npm packages and helper functions are accessible in lambda function

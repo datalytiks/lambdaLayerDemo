@@ -12,7 +12,7 @@ export class LambdaLayerDemoStack extends cdk.Stack {
     const packageLayer = new lambda.LayerVersion(this, 'package-layer', {
       compatibleRuntimes: [ lambda.Runtime.NODEJS_16_X ],
       compatibleArchitectures: [ lambda.Architecture.X86_64 ],
-      code: lambda.Code.fromAsset('src/layers/package-layer'),
+      code: lambda.Code.fromAsset('src/layers/npm-packages'),
       description: 'npm package layer having yup'
     })
 
@@ -20,7 +20,7 @@ export class LambdaLayerDemoStack extends cdk.Stack {
     const functionLayer = new lambda.LayerVersion(this, 'function-layer', {
       compatibleRuntimes: [ lambda.Runtime.NODEJS_16_X ],
       compatibleArchitectures: [ lambda.Architecture.X86_64 ],
-      code: lambda.Code.fromAsset('src/layers/function-layer'),
+      code: lambda.Code.fromAsset('src/layers/helper-functions'),
       description: 'function layer having calc module'
     })
 
